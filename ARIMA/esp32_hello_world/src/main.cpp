@@ -27,8 +27,8 @@ extern "C" {
     void app_main() {
         ESP_LOGI(TAG, "\r\n\r\nApplication started...\r\n\r\n");
 
-        // Main loop running indefinitely
-        for(int j = 0; j < 10; j++) {
+        // Main loop running for a long time
+        for(int j = 0; j < 100000; j++) {
         // Start of execution time for in-sample prediction
         ESP_LOGD(TAG, "\r\n\r\nPrediction running...\r\n\r\n");
         // B: Predictions stored in this array as for-loop below runs
@@ -81,7 +81,7 @@ extern "C" {
 
         // Out-of-sample / Future forecast 
         start = high_resolution_clock::now();       
-        for (int i = 141; i < 1500; i++){
+        for (int i = 141; i < 282; i++){
             // Init. prediction and error as 0 for each timestep 
             float pred = 0;
             float err = 0;
