@@ -1,6 +1,6 @@
-Project name:IL2232 Time series analysis
-Project part: The implementation of RNN of esp32
-Hengzhen Yuan 
+# Project name: IL2232 Time series analysis
+## Project part: The implementation of RNN of esp32
+### Hengzhen Yuan 
 
 
 The main project can be divided into two parts.The first one is building and training the RNN model on PC 
