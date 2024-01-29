@@ -4,8 +4,8 @@
 
 const int k = 3;
 const int num_features = 128;
-const char* ssid = "CCTV1";
-const char* password = "cgy6726288";
+const char* ssid = "别处-5G";
+const char* password = "66666666";
 //const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
 const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
 String payload;

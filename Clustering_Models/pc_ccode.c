@@ -197,7 +197,7 @@ void kMeansInference(double *input_data, double **centroids, int n_samples, int 
 }
 
 void test_kmeans(int *test_assignment, int K, int n_test_samples, int m_features, double *test_data, double **centroids) {
-    for (int i = 0; i < n_test_samples; i++) {
+    for (int i = 0; i < 30; i++) {
         double min_distance = INFINITY;
         int min_index = -1;
 
@@ -217,13 +217,16 @@ void test_kmeans(int *test_assignment, int K, int n_test_samples, int m_features
 
 int BME() {
     FILE* file = fopen("BME_COMBINE.txt", "r");
+    //FILE* file = fopen("BME_TRAIN_4.txt", "r");
     if (file == NULL) {
         printf("Failed to open file BME\n");
         exit(1);
     }
 
+    //int train_samples = 180; // Number of samples
     int train_samples = 180; // Number of samples
     int m_features = 128; // Number of features per sample (assuming fixed)
+    int test_samples = 30;
 
     // Allocate memory for data and class labels
     double *train_data = (double *)malloc(train_samples * m_features * sizeof(double));
@@ -261,15 +264,15 @@ int BME() {
     // Print the cluster assignments with class labels
     //printf("Sample\tCluster\tClass\n");
 
-    test_kmeans(assignment, K, train_samples, m_features, train_data, train_centroids);
+    test_kmeans(assignment, K, test_samples, m_features, train_data, train_centroids);
 
-    for (int i = 0; i < train_samples; i++) {
+    for (int i = 0; i < test_samples; i++) {
         assignment[i] = assignment[i] + 1;
         printf("%d\t%d\t%d\n", i, assignment[i], (int)train_class_labels[i]);
     }
 
     // Calculate RAND index
-    double rand_index = calculate_rand_index(assignment, train_class_labels, train_samples);
+    double rand_index = calculate_rand_index(assignment, train_class_labels, test_samples);
     printf("RAND index: %.4f\n", rand_index);
     
     // Free memory
