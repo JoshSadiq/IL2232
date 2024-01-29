@@ -24,7 +24,7 @@ This repository contains the files for running the ARIMA model on PC (used for b
 
 ## Deploying and running the C++-code
 
-The C++-code was built and deployed using [PlatformIO](https://platformio.org/), a VSCode-extension which allows the building, deployment and monitoring of program files unto embedded devices. The prerequisites/instructions will refer to this method of deploying the program.
+The C++-code was built and deployed using [PlatformIO](https://platformio.org/), a VSCode-extension which allows the building, deployment and monitoring of program files unto embedded devices. The prerequisites/instructions will refer to this method of deploying the program. PlatformIO is also necessary to measure the program space the code takes, as only inference time is measured in-program.
 
 ### Prerequisities
 
@@ -33,10 +33,6 @@ The C++-code was built and deployed using [PlatformIO](https://platformio.org/),
 
 ### Instructions
 
-1. Connect the ESP32 to the PC, identify the correct COM-port (e.g. `COM17`)
-2. In PlatformIO menu, pick 
-
-Subfolder contains all files related to ARIMA on ESP32 research
-
-DOIT ESP32 DEVKIT V1
-Alt.: uPesy ESP32 Wroom DevKit
+1. Connect the ESP32 to the PC, identify the correct COM-port (e.g. `COM17` or `//dev/ttyUSB0`)
+2. In the _platformio.ini_-file, make sure to set the correct settings e.g. the COM port and and upload/monitor speeds
+3. In the PlatformIO-menu, use _Upload and Monitor_-option to build and upload the program code, and then monitor the output using the Serial Monitor.
