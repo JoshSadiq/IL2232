@@ -1,6 +1,6 @@
 # Clustering Models
 
-This repository contains code for running K-Means clustering and Self-Organizing Maps (SOM) inference on ESP32 using Arduino. Additionally, it includes a training code (`pc_ccode.c`) for running on a PC.
+This repository contains code for running K-Means clustering and Self-Organizing Maps (SOM) inference on ESP32 using Arduino and a training code for running on a PC.
 
 ## Directory Structure
 
