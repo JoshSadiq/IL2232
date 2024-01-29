@@ -8,6 +8,14 @@ This repository contains code for running K-Means clustering and Self-Organizing
 - **esp_som**: Contains Arduino code for running Self-Organizing Maps (SOM) inference on ESP32.
 - **pc_ccode.c**: Contains training code to be run on a PC.
 
+## Dataset: BME_COMBINE.txt
+
+The `BME_COMBINE.txt` dataset is included in this repository for training and testing purposes on PC. The dataset required for the inference on ESP is hosted on Google Cloud. It consists of 128 rows, where each row has the first column as the label and the next 128 columns as features.
+
+### Format
+
+- Column 1: Label
+- Columns 2-129: Features
 ## Running the Arduino Code
 
 ### Prerequisites
