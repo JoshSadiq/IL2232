@@ -303,8 +303,6 @@ int main() {
     clock_gettime(CLOCK_MONOTONIC, &start_time);
 
     // Run the clustering algorithm
-    //irisSOM();
-    //iris();
     BME();
     //BMESOM();
 

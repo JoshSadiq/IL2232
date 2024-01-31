@@ -4,8 +4,8 @@
 
 const int k = 3;
 const int num_features = 128;
-const char* ssid = "别处-5G";
-const char* password = "66666666";
+const char* ssid = "CCTV1";
+const char* password = "cgy6726288";
 //const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
 const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
 String payload;
@@ -145,7 +145,8 @@ void setup() {
 
   double **preTrainedCentroids = initializeCentroids();
 
-  Serial.printf("Free heap before kMeansInference: %u bytes\n", ESP.getFreeHeap()); 
+  int fh1 = ESP.getFreeHeap();
+  Serial.printf("Free heap before kMeansInference: %u bytes\n", fh1); 
   bool success = downloadFromGCS(storageURL);
 
   if (success) {
@@ -201,7 +202,9 @@ void setup() {
     unsigned long average_time = total_time / num_runs;
     Serial.printf("Average running time for %d runs: %lu milliseconds\n", num_runs, average_time);
 
-    Serial.printf("Free heap after kMeansInference: %u bytes\n", ESP.getFreeHeap());
+    int fh2 = ESP.getFreeHeap();
+    Serial.printf("Free heap after kMeansInference: %u bytes\n", fh2);
+    Serial.printf("Memory Consumption of kMeansInference: %u bytes\n", fh1 - fh2);
 
     // Output the predicted cluster
     printf("Assigned clusters:\n");
@@ -212,7 +215,7 @@ void setup() {
     double rand_index = calculate_rand_index(assignments, train_class_labels, n_samples);
     printf("RAND index: %.4f\n", rand_index);
 
-    Serial.printf("Free heap2 after kMeansInference: %u bytes\n", ESP.getFreeHeap());
+    
     // Free allocated memory
     free(train_data);
     free(train_class_labels);

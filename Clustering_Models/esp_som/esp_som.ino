@@ -207,8 +207,8 @@ void setup()
    Serial.println();
  }
 */
-
-  Serial.printf("Free heap before somInference: %u bytes\n", ESP.getFreeHeap());
+  int fh1 = ESP.getFreeHeap();
+  Serial.printf("Free heap before somInference: %u bytes\n", fh1);
   bool success = downloadFromGCS(storageURL);
 
 
@@ -258,8 +258,9 @@ void setup()
     unsigned long average_time = total_time / num_runs;
     Serial.printf("Average running time for %d runs: %lu milliseconds\n", num_runs, average_time);
 
-    Serial.printf("Free heap after kMeansInference: %u bytes\n", ESP.getFreeHeap());
-
+    int fh2 = ESP.getFreeHeap();
+    Serial.printf("Free heap after somInference: %u bytes\n", fh2);
+    Serial.printf("Memory Consumption of somInference: %u bytes\n", fh1 - fh2);
 
     // Access the clustering result
     for (int i = 0; i < train_samples; i++) 
