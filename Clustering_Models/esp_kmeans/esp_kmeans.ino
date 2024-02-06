@@ -4,10 +4,10 @@
 
 const int k = 3;
 const int num_features = 128;
-const char* ssid = "CCTV1";
-const char* password = "cgy6726288";
-//const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
-const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
+const char* ssid = "ssid";  //your wifi ssid
+const char* password = "password";  //your wifi password
+const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
+//const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
 String payload;
 
 double **initializeCentroids() {
@@ -136,7 +136,7 @@ double calculate_rand_index(int *assignment, double *class_labels, int n_samples
 
 void setup() {
   Serial.begin(115200);
-
+  delay(3000);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);

@@ -10,10 +10,10 @@
 const int height = 3; 
 const int width = 1; 
 const int m_features = 128;
-const char* ssid = "CCTV1";
-const char* password = "cgy6726288";
-//const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
-const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
+const char* ssid = "ssid"; //your wifi ssid
+const char* password = "password"; //your wifi password
+const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
+//const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
 String payload;
 
 
@@ -189,7 +189,7 @@ bool parsePayload(const String& payload, double* train_data, double* train_class
 void setup()
 {
  Serial.begin(115200);
- delay(10000);  // Allow time for serial monitor to initialize
+ delay(3000);  // Allow time for serial monitor to initialize
  WiFi.begin(ssid, password);
  while (WiFi.status() != WL_CONNECTED) {
    delay(1000);
