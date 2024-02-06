@@ -4,8 +4,8 @@
 
 const int k = 3;
 const int num_features = 128;
-const char* ssid = "xiaomi13";  //your wifi ssid
-const char* password = "itsmygo77";  //your wifi password
+const char* ssid = "ssid";  //your wifi ssid
+const char* password = "password";  //your wifi password
 const char* storageURL = "https://storage.googleapis.com/bmepredict/BME_TRAIN_4.txt";
 //const char* storageURL = "https://bmedata.oss-cn-hangzhou.aliyuncs.com/BME_TRAIN_4.txt";
 String payload;
